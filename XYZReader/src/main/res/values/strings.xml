@@ -23,6 +23,6 @@
 
     <string name="ala_tag_msg">passing today\'s date</string>
     <string name="image_description">Image of book cover</string>
-    <string name="transition_photo">transition photo</string>
+    <string name="transition_photo">transition</string>
 
 </resources>

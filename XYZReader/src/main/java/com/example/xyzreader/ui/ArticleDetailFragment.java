@@ -6,11 +6,9 @@ import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.graphics.Typeface;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.ShareCompat;
-import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.format.DateUtils;
@@ -240,6 +238,17 @@ public class ArticleDetailFragment extends Fragment implements
 
         }
     }
+
+    //    @Override
+    //    public boolean onOptionsItemSelected(MenuItem item) {
+    //        switch (item.getItemId()) {
+    //            // Respond to the action bar's Up/Home button
+    //            case android.R.id.home:
+    //                supportFinishAfterTransition();
+    //                return true;
+    //        }
+    //        return super.onOptionsItemSelected(item);
+    //    }
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
