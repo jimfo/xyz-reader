@@ -1,0 +1,28 @@
+<resources>
+
+    <string name="app_name">XYZ Reader</string>
+    <string name="welcome_xyz_reader">Welcome to XYZ Reader!</string>
+
+    <string name="action_refresh">Refresh</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_share">Share</string>
+
+    <string name="up">Up</string>
+
+    <string name="us_id">id</string>
+    <string name="us_author">author</string>
+    <string name="us_title">title</string>
+    <string name="us_body">body</string>
+    <string name="us_thumb">thumb</string>
+    <string name="us_photo">photo</string>
+    <string name="us_aspect_ratio">aspect_ration</string>
+    <string name="us_published_date">published_date</string>
+    <string name="us_parse_exception">Invalid parsed item array</string>
+    <string name="us_update_error">Error updating content.</string>
+    <string name="us_connectivity_error">Not online, not refreshing.</string>
+
+    <string name="ala_tag_msg">passing today\'s date</string>
+    <string name="image_description">Image of book cover</string>
+    <string name="transition_photo">transition photo</string>
+
+</resources>
