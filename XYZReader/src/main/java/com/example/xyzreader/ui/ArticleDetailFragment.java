@@ -159,8 +159,8 @@ public class ArticleDetailFragment extends Fragment implements
             @Override
             public void onClick(View view) {
                 startActivity(Intent.createChooser(ShareCompat.IntentBuilder.from(getActivity())
-                        .setType("text/plain")
-                        .setText("Some sample text")
+                        .setType(getResources().getString(R.string.set_type))
+                        .setText(getResources().getString(R.string.set_text))
                         .getIntent(), getString(R.string.action_share)));
             }
         });
@@ -211,6 +211,12 @@ public class ArticleDetailFragment extends Fragment implements
             mRootView.animate().alpha(1);
             titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
             titleView1.setText(mCursor.getString(ArticleLoader.Query.TITLE));
+
+            StringBuilder author = new StringBuilder();
+            author.append(" by <font color='#ffffff'>");
+            author.append(mCursor.getString(ArticleLoader.Query.AUTHOR));
+            author.append("</font>");
+
             Date publishedDate = parsePublishedDate();
             if (!publishedDate.before(START_OF_EPOCH.getTime())) {
                 bylineView.setText(Html.fromHtml(
@@ -218,18 +224,13 @@ public class ArticleDetailFragment extends Fragment implements
                                 //publishedDate.getTime(),
                                 System.currentTimeMillis(), DateUtils.HOUR_IN_MILLIS,
                                 DateUtils.FORMAT_ABBREV_ALL
-                        ).toString()
-                                + " by <font color='#ffffff'>"
-                                + mCursor.getString(ArticleLoader.Query.AUTHOR)
-                                + "</font>"));
+                        ).toString() + author));
+
 
             } else {
                 // If date is before 1902, just show the string
                 bylineView.setText(Html.fromHtml(
-                        outputFormat.format(publishedDate) + " by <font color='#ffffff'>"
-                                + mCursor.getString(ArticleLoader.Query.AUTHOR)
-                                + "</font>"));
-
+                        outputFormat.format(publishedDate) + author)); 
             }
 
             bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY)
@@ -239,16 +240,6 @@ public class ArticleDetailFragment extends Fragment implements
         }
     }
 
-    //    @Override
-    //    public boolean onOptionsItemSelected(MenuItem item) {
-    //        switch (item.getItemId()) {
-    //            // Respond to the action bar's Up/Home button
-    //            case android.R.id.home:
-    //                supportFinishAfterTransition();
-    //                return true;
-    //        }
-    //        return super.onOptionsItemSelected(item);
-    //    }
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
@@ -266,7 +257,6 @@ public class ArticleDetailFragment extends Fragment implements
 
         mCursor = cursor;
         if (mCursor != null && !mCursor.moveToFirst()) {
-            Log.e(TAG, "Error reading item detail cursor");
             mCursor.close();
             mCursor = null;
         }
