@@ -25,6 +25,6 @@
     <string name="image_description">Image of book cover</string>
     <string name="transition_photo">transition</string>
     <string name="set_type">text/plain</string>
-    <string name="set_text">Some sample text</string>
+    <string name="set_text">some sample text</string>
 
 </resources>
