@@ -230,7 +230,7 @@ public class ArticleDetailFragment extends Fragment implements
             } else {
                 // If date is before 1902, just show the string
                 bylineView.setText(Html.fromHtml(
-                        outputFormat.format(publishedDate) + author)); 
+                        outputFormat.format(publishedDate) + author));
             }
 
             bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY)
